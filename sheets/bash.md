@@ -85,7 +85,16 @@ date +%s | sha256sum | base64 | head -c 32 ; echo
 ## Get public IP address
 
 ```bash
+sudo apt install curl # on debian/ubuntu if not already available
 curl ipinfo.io/ip
+```
+
+## Line Endings
+
+Convert all PHP files in the current directory to Unix line endings
+
+```bash
+find "./" -type f -name '*.php' -execdir dos2unix {} +
 ```
 
 ## MySQL
@@ -103,13 +112,15 @@ Create database export file
 mysqldump -u database_user -p database_name > file.sql
 ```
 
-## Line Endings
+## PHP
 
-Convert all PHP files in the current directory to Unix line endings
+Start PHP's built in webserver for the current directory
 
 ```bash
-find "./" -type f -name '*.php' -execdir dos2unix {} +
+php -S 127.0.0.1:8000
 ```
+
+Now you can access this directory as root under <http://localhost:8000>
 
 ## Python
 
