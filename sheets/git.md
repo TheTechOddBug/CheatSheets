@@ -120,7 +120,13 @@ git remote prune origin
 
 ## Submodules
 
-Pull all submodules of the current repository (as they will not automatically retrieved by a `git clone`)
+Clone the main repository and automatically initialize and update all its submodules.
+
+```bash
+git clone --recurse-submodules https://your-repository.url
+```
+
+Or pull all submodules of the current repository, if you already cloned it (as they will not automatically retrieved by a `git clone`)
 
 ```bash
 git submodule update --init --recursive
