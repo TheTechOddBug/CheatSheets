@@ -97,6 +97,18 @@ Convert all PHP files in the current directory to Unix line endings
 find "./" -type f -name '*.php' -execdir dos2unix {} +
 ```
 
+## Ports
+
+Check which process uses a given port and (optionally) kill it
+
+```bash
+sudo lsof -i :1234
+# COMMAND     PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+# docker-pr 43185 root    7u  IPv4 123123      0t0  TCP *:1234 (LISTEN)
+# docker-pr 43198 root    7u  IPv6 123123      0t0  TCP *:1234 (LISTEN)
+sudo kill 43185
+```
+
 ## MySQL
 
 Run database import file on server (corresponding to the phpMyAdmin importer)
